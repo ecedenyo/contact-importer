@@ -27,4 +27,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/contacts/importer', funct
     return view('contacts.importer');
 })->name('contact-importer');
 Route::middleware(['auth:sanctum', 'verified'])->get('/contacts', [ContactController::class, 'index'])->name('contacts');
-Route::middleware(['auth:sanctum', 'verified'])->post('/contacts/importer', [ContactController::class, 'store'])->name('contacts.store');
+// Route::middleware(['auth:sanctum', 'verified'])->post('/contacts/importer', [ContactController::class, 'store'])->name('contacts.store');
+Route::middleware(['auth:sanctum', 'verified'])->post('/contacts/import', [ContactController::class, 'importFile'])->name('contacts.import');
+Route::middleware(['auth:sanctum', 'verified'])->get('/contacts/export', [ContactController::class, 'exportFile'])->name('contacts.export');
+
+// Route::get('import-export', [ImportExportController::class, 'importExport']);

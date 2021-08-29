@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\ContactsExport;
+use App\Imports\ContactsImport;
+use Illuminate\Support\Facades\Storage;
 
 class ContactController extends Controller
 {
@@ -97,4 +101,20 @@ class ContactController extends Controller
     {
         //
     } */
+
+    public function importExport()
+    {
+       return view('welcome');
+    }
+   
+    public function importFile(Request $request) 
+    {
+        Excel::import(new ContactsImport, $request->file('contactfile')->store('temp'));
+        return back();
+    }
+
+    public function exportFile() 
+    {
+        return Excel::download(new ContactsExport, 'contacts-list.xlsx');
+    }
 }
