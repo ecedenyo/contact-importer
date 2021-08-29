@@ -1,3 +1,46 @@
+# Contact Importer
+
+System implemented in **Laravel 8.57.0** with **Jetstream** (2.3) and **Livewire** (2.5). It consists in a system that can feed a DB of contacts with some credit card information related through a CSV file.
+
+## Main ToDo list (WIP):
+
+- [ ] show contact full details _... in progress..._
+- [ ] show a summary of the contacts imported
+- [ ] Validate CSV data
+- [ ] Process CSV file to obtain CC Franchise according to CC Number
+- [ ] Process CSV file so column order doesn't matter
+- [ ] show a log of the CSV files processed
+- [ ] Fully system deployed in some PaaS _(Heroku) ... in progress..._
+
+
+
+## Changelog
+
+**v1.0.0**, aug/29, 2021:
+
+* initial deploy, personalized template is in WIP
+* to access (login) you can use user `admin@mail.com` with password `myS3cr3tPassowrd`, or create (register) your own.
+
+## Installation process:
+
+* download / clone the project
+* create a database with name: `laravel_project_contactimporterl8` _(otherwise, change this in .env)_
+* adjust your database environment credentials in `.env`
+* initiate the database with command _(on the terminal)_: `php artisan migrate --seed`
+
+
+## Testing data:
+
+In order to initiate the system with some dummy data you can enter these commands in the terminal:
+
+```
+php artisan tinker
+# once in tinker enter next
+Contact::factory()->count(5)->create();
+```
+
+---
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
