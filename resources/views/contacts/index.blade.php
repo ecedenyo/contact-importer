@@ -21,11 +21,10 @@
                         <tr>
                             <th class="border p-2">Name</th>
                             <th class="border p-2">Telephone</th>
-                            <th class="border p-2">CC Last Number</th>
-                            <th class="border p-2">Franchise</th>
                             <th class="border p-2">Email</th>
-                            <th class="border p-2">Created at</th>
-                            <th class="border p-2">&nbsp;</th>
+                            <th class="border p-2"><abbr title="Credit card last (4) numbers">CC</abbr> / Franchise</th>
+                            <th class="border p-2">Address</th>
+                            <th class="border p-2">Birthdate</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,11 +32,10 @@
                             <tr>
                                 <td class="border p-2">{{ $contact->name }}</td>
                                 <td class="border p-2">{{ $contact->telephone }}</td>
-                                <td class="border p-2">{{ $contact->creditcard_lastnumbers }}</td>
-                                <td class="border p-2">{{ $contact->franchise }}</td>
                                 <td class="border p-2">{{ $contact->email }}</td>
-                                <td class="border p-2">{{ $contact->created_at }}</td>
-                                <td class="border p-2"><a href="#">Details »</a></td>
+                                <td class="border p-2 text-sm">{{ $contact->creditcard_lastnumbers }}, {{ $contact->franchise }}</td>
+                                <td class="border p-2 text-sm">{{ $contact->address }}</td>
+                                <td class="border p-2"><?= date('Y F j', strtotime($contact->birthdate)) ?></td>
                             </tr>
                         @endforeach
                     </tbody>
