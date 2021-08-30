@@ -24,6 +24,7 @@ System implemented in **Laravel 8.57.0** with **Jetstream** (2.3) and **Livewire
 ## Installation process:
 
 * download / clone the project
+* execute in the terminal: `composer install && npm install && npm run dev`
 * create a database with name: `laravel_project_contactimporterl8` _(otherwise, change this in .env)_
 * adjust your database environment credentials in `.env`
 * initiate the database with command _(on the terminal)_: `php artisan migrate --seed`
